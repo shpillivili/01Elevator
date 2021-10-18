@@ -11,16 +11,16 @@ public class Elevator {
     }
     // метод, перемещающий лифт на заданный в параметре этаж
     public void move(int floor) {
+        if (floor > maxFloor || floor < minFloor) {
+            System.out.println("Error");
+            return;
+        }
         while (getCurrentFloor() != floor) {
             if (getCurrentFloor() < floor) {
                 moveUp();
             }
             else {
                 moveDown();
-            }
-            if (floor > maxFloor || floor < minFloor) {
-                System.out.println("Error");
-                break;
             }
             System.out.println(getCurrentFloor());
         }
